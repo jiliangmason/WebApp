@@ -1,6 +1,6 @@
 export function postData(url, paramobj) {
     const myFetchOptions = {
-        method: "POST",
+        method: 'POST',
         credentials: 'include', //包含cookies
         headers: {
             'Accept': 'application/json, text/plain, */*',

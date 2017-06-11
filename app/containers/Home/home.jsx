@@ -15,7 +15,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-               <HomeHeader cityName={this.props.userinfo.cityName}/>
+                <HomeHeader cityName={this.props.userinfo.cityName}/>
                 <Carousel />
                 <div style={{height: "15px"}}></div>
                 <AdFavour />
@@ -36,4 +36,4 @@ function mapDispatchToProps(dispatch) {
     return {}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

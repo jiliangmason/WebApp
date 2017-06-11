@@ -1,6 +1,6 @@
 export const LocalStore = {
     getItem: function (key) {
-        let value
+        let value;
         try {
             value = localStorage.getItem(key)
         } catch (ex) {
@@ -9,7 +9,7 @@ export const LocalStore = {
                 console.error('localStorage.getItem报错, ', ex.message)
             }
         } finally {
-            return value
+            return value;
         }
     },
     setItem: function (key, value) {
@@ -23,4 +23,4 @@ export const LocalStore = {
             }
         }
     }
-}
+};

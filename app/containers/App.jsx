@@ -39,11 +39,9 @@ class App extends React.Component {
         return (
             <div>
                 {
-                    this.state.initDone ?
-                        this.props.children :
-                        <div>
-                            正在加载...
-                        </div>
+                    this.state.initDone
+                    ? this.props.children
+                    : <div>正在加载...</div>
                 }
             </div>
         )
