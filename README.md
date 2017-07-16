@@ -108,7 +108,9 @@ window.addEventListener('scroll', function() {
         /*
         * 跳转回home页面
         * */
-        hashHistory.push("/");```
+        hashHistory.push("/");
+```
+<br />
 
 ### 搜索页面：
 1. 进入Search的2个位置：
