@@ -86,8 +86,9 @@ window.addEventListener('scroll', function() {
   if (timer) clearTimeout(timer)
   timer = setTimeout(callback, 50)  
 })
-}```
-
+}
+```
+<br />
 
 ### 城市页面
 1. 通过点击选择城市，然后修改redux的cityName：
