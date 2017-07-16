@@ -28,8 +28,9 @@ componentDidMount() {
             initDone: true
         });
 
-    } ``` 
-<br>
+    }
+```
+
 2. 首页广告 & 列表数据获取：
 ```
 ComponentDidMount() {
@@ -39,7 +40,7 @@ ComponentDidMount() {
 }
 ```
 
-data渲染页面 <br>
+data渲染页面 <br/>
 
 3. 下拉刷新：
 state的结构：
@@ -91,7 +92,7 @@ window.addEventListener('scroll', function() {
 
 
 ### 城市页面
-1. 通过点击选择城市，然后修改redux的cityName： <br>
+1. 通过点击选择城市，然后修改redux的cityName：
 ```
         /*
         * 修改redux
@@ -110,7 +111,85 @@ window.addEventListener('scroll', function() {
         * */
         hashHistory.push("/");```
 
+### 搜索页面：
+1. 进入Search的2个位置：
+* 轮播图
+* 首页顶部搜索
+search的router规则是：/search/:category(/:keyword)
+search的3个组件是：
+* SearchInput: 输入keyword
+* SearchHeader：显示keyword，包含SearchInput
+* SearchList: 根据keyword和category来获取搜索结果列表
 
+search后台的请求Api：
+```
+export function getSearchList(city, page, category, keyword) {
+    let keywordStr = keyword ? "/" + keyword : "";
+    const result = getData('/api/search' + '/' + page + '/' + city + '/' + category + keywordStr);
+    return result;
+}
+```
+SearchList组件中添加：
+```
+componentDidUpdate(prevProps, prevState) {
+        /*
+        1.只要props和state发生改变就进入这个函数,
+        2.在当前页继续搜索时，可以调用该函数
+        */
+        const props = this.props;
+        if(props.keywords == prevProps.keywords && props.category == prevProps.category) {
+            return;
+        }
+        this.setState({
+            data: [],
+            hasMore: false,
+            isLoadingMore: false,
+            page: 1
+        });
+
+        this.loadFirstPage();
+    }
+```
+其余实现同首页的List
+
+### 详情页面：
+1. 把id传递给Info和Comment组件
+2. Comment组件使用LoadMore组件加载更多，首页+搜索列表+Comment都采用了加载更多，加载更多都需要传递一个page
+3. <Header title="商品详情"/>，Header组件还有一个缺省属性是router, 如果存在router，则跳转到router页
+
+## 登陆页面：
+1. 路由：<Route path="/login(/:router)" component={Login}/>
+说明在哪里登陆的，登陆后跳到哪里
+
+2. componentDidMount后从redux中取username，若存在则跳转到user个人详情
+若不存在则使用LoginForm组件登陆
+
+3. 登陆方法：
+```
+loginHandler(username) {
+        const actions = this.props.userIdActions;
+        let userinfo = this.props.userinfo;
+        /*
+        * 修改redux，redux里面存的数据username cityName --> state.userinfoReducer下面
+        * 条件：该组件是容器组件，且经过mapStateToProps和mapDispatchToProps
+        * */
+        userinfo.username = username;
+        actions.login(userinfo); //发出动作，更新redux的userinfo
+
+        /*
+        * 跳转页面，从详情页的购买来，登陆完成后就回去
+        * */
+        const params = this.props.params;
+        let router = params.router;
+        if (router) {
+            hashHistory.replace(router); //router是encodeURIComponent('details/' + id)，见buy.jsx
+        }
+        else {
+            //console.log("跳转默认页");
+            this.goUserPage(); //router无，跳转到默认页面
+        }
+    }
+```
 
 
 
