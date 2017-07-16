@@ -50,11 +50,11 @@ this.state = {
             hasMore: false, //true: 有数据加载  false: 无数据  由服务端发送
             isLoadingMore: false, //判断加载状态是 true:正在加载....（还没加载完） 还是 false:加载更多（已经完成）
             page: 1 //下一页的页码
-        }```
+        }
 
 
 下拉加载的处理函数：
-```
+
 LoadMoreData() {
         this.setState({
             isLoadingMore:true //正在加载中...
@@ -69,10 +69,8 @@ LoadMoreData() {
             isLoadingMore:false, //加载完成
             page: page+1
         })
-    }``` 
+    }
 
-
-```
 componentDidMount() {
   判断加载按钮距离顶部的距离，若小于整个屏幕高就加载：
   function callback() {
@@ -157,7 +155,7 @@ componentDidUpdate(prevProps, prevState) {
 2. Comment组件使用LoadMore组件加载更多，首页+搜索列表+Comment都采用了加载更多，加载更多都需要传递一个page
 3. <Header title="商品详情"/>，Header组件还有一个缺省属性是router, 如果存在router，则跳转到router页
 
-## 登陆页面：
+### 登陆页面：
 1. 路由：<Route path="/login(/:router)" component={Login}/>
 说明在哪里登陆的，登陆后跳到哪里
 
