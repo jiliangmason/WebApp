@@ -19,7 +19,7 @@ export default class LoadMore extends React.Component {
         function callback() {
             let loadingHeight = loadBtn.getBoundingClientRect().top; //加载按钮距离屏幕的高度
             //console.log(loadingHeight);
-            let windowHeight = window.screen.height; //屏幕高度
+            let windowHeight = document.documentElement.clientHeight; //屏幕高度
             //console.log(windowHeight);
 
             /*

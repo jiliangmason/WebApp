@@ -53,7 +53,7 @@ class SearchList extends React.Component {
             isLoadingMore: true
         });
 
-        let page = this.state.page;
+        let page = this.state.page; //1
         let result = getSearchList(city, page, category, keyword);
         this.handleResult(result);
 

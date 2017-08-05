@@ -19,7 +19,7 @@ export function storeReducer(state=initialState, action) {
             return state;
 
         case actionType.STORE_REMOVE:
-            return state.filter(item=>{
+            return state = state.filter(item=>{
                 if (item.id !== action.data.id) {
                     return item
                 }

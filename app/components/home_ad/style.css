@@ -9,11 +9,12 @@
 }
 #home-ad .ad-container {
   width: 100%;
-  padding: 10px 15px;
+  padding: 10px 10px;
 }
 #home-ad .ad-item {
   width: 33.3%;
-  height: 140px;
+  padding: 5px;
+  height: 100px;
 }
 #home-ad .ad-item img {
   width: 100%;

@@ -192,5 +192,61 @@ loginHandler(username) {
     }
 ```
 
+### 购买&收藏页面：
+1. 商品详情页传入商品id
+2. storeHandler用来检查是否已经收藏，从redux的store中查找id
+3. buyHandler用来购买相应商品，省略购买流程，购买完后跳转至个人中心
+4. loginCheck检查用户是否登陆，若未登陆
+```
+hashHistory.replace('/login/' + encodeURIComponent('details/' + id));
+```
+跳转至登陆页面，登陆页面登陆后，可以根据后面的内容跳回来
+
+### 用户中心页面：
+1. 用户中心会在组件加载后判断是否登陆，未登陆先登陆
+2. 头部组件<Header title="用户中心" router="/"/> 必须要有一个router="/"
+   否则点击返回上一页，回到登陆页面，登陆页面判断用户已经登陆，又会跳回个人中心，效果上就是闪一下，
+   代码：
+   ```
+   doCheck() {
+           const username = this.props.userinfo.username;
+           if (username) {
+               //console.log(username);
+               this.goUserPage();
+           } //already logined
+           else {
+               this.setState({
+                   checking: false //display login component
+               })
+           } //didn't login
+       }
+   ```
+   Login组件的docheck中，当username存在时，会跳回个人页面
+3. OrderList组件通过getOrderListData，获取后台的数据
+   将数据和提交方法submitComment传给子组件OrderListItem，其中的submitComment是：
+   ```
+   submitComment(id, value, callback) {
+           const result = postComment(id, value);
+           result.then(res=>res.json())
+                 .then(json=>{
+                     if (json.errno === 0)  //已经评论成功
+                     callback();
+                 }).catch(err=>{
+                     console.log(err.message);
+                   })
+       }
+   ```  
+   由此可以看到子组件可以传一个callback函数给父组件调用，
+4. 用户评论的对话框三个状态：
+```
+this.state = {
+            commentState: 2  //0:未评价 1:正在评价 2:评价结束
+        };
+```
 
 
+
+### 订单评价页面开发
+1. DetailsComment组件，传入商品详情id
+2. 传统套路：
+loadFirstPage(获取数据) -> 下拉加载loadMore(加载更多) -> 把数据交给木偶组件DetailsCommentList展示

@@ -63,7 +63,7 @@ module.exports = {
             target: "http://localhost:3000",  //post数据的地址
             secure: false
         }},
-        contentBase: "./public", //本地服务器所加载的页面所在的目录
+        contentBase: "./build", //本地服务器所加载的页面所在的目录
         colors: true, //终端中输出结果为彩色
         historyApiFallback: true, //不跳转
         inline: true, //实时刷新

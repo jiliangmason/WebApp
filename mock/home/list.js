@@ -5,17 +5,17 @@ module.exports = {
     hasMore: true,
     data: [
         {
-            img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201638030-473660627.png',
-            title: '汉堡大大',
-            subTitle: '叫我汉堡大大，还你多彩口味',
-            price: '28',
+            img: 'http://p0.meituan.net/200.0/deal/3e47fec6eeefd65af4329f1fe431b34677413.jpg',
+            title: '自助火锅',
+            subTitle: '自助火锅，多种优惠',
+            price: '65',
             distance: '120m',
             mumber: '389',
             id: Math.random().toString().slice(2)
         },
         {
-            img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201645858-1342445625.png',
-            title: '北京开源饭店',
+            img: 'http://p1.meituan.net/350.214/deal/3e6f2bf1425b8128f674d5305fee97b662964.jpg',
+            title: 'ZM意大利披萨',
             subTitle: '[望京]自助晚餐',
             price: '98',
             distance: '140m',
@@ -23,28 +23,28 @@ module.exports = {
             id: Math.random().toString().slice(2)
         },
         {
-            img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201652952-1050532278.png',
-            title: '服装定制',
-            subTitle: '原价xx元，现价xx元，可修改一次',
-            price: '1980',
+            img: 'http://p1.meituan.net/460.280/deal/__50208250__5908077.jpg',
+            title: '京味斋烤鸭店',
+            subTitle: '价值168元的精品烤鸭一套-（铜锣酥嫩香烤鸭）1份',
+            price: '80',
             distance: '160',
             mumber: '106',
             id: Math.random().toString().slice(2)
         },
         {
-            img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201700186-1351787273.png',
-            title: '婚纱摄影',
-            subTitle: '免费试穿，拍照留念',
-            price: '2899',
+            img: 'http://p0.meituan.net/460.280/deal/24f749e758af7971c5f592078b57c0aa118808.jpg',
+            title: '天使食府',
+            subTitle: '价值100元的代金券1张全场通用，可叠加使用，提供免费WiFi',
+            price: '89',
             distance: '160',
             mumber: '58',
             id: Math.random().toString().slice(2)
         },
         {
-            img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201708124-1116595594.png',
-            title: '麻辣串串烧',
-            subTitle: '双人免费套餐等你抢购',
-            price: '200',
+            img: 'http://p0.meituan.net/460.280/deal/568434096e2eda6aaac8fc758961ac40133059.jpg',
+            title: '沸腾渝家',
+            subTitle: '烤鱼套餐，建议2人使用，提供免费WiFi，提供免费停车位',
+            price: '89',
             distance: '160',
             mumber: '1426',
             id: Math.random().toString().slice(2)
